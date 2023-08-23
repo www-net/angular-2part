@@ -6,12 +6,5 @@ import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angu
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-ng-container';
-
-toggle: Boolean = true;
-
-onToggle(){
-  this.toggle = !this.toggle
-}
 
 }
