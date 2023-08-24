@@ -1,18 +1,37 @@
-import { AfterContentInit, Component, ContentChild, DoCheck, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import {
+  AfterContentChecked,
+  AfterContentInit,
+  AfterViewInit,
+  Component,
+  ContentChild,
+  DoCheck,
+  ElementRef,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges, ViewChild
+} from '@angular/core';
 
 @Component({
   selector: 'app-demo',
   templateUrl: './demo.component.html',
   styleUrls: ['./demo.component.css']
 })
-export class DemoComponent implements OnChanges, OnInit, DoCheck, AfterContentInit {
+export class DemoComponent implements
+  OnChanges,
+  OnInit,
+  DoCheck,
+  AfterContentInit,
+  AfterContentChecked,
+  AfterViewInit {
+
   title: string = 'Demo Component';
   @Input() message: string;
   @ViewChild('temp') tempPara: ElementRef;
   @ContentChild('temp') paraContent: ElementRef;
 
   constructor() {
-    console.log('Demo compinent constructor called');
+    // console.log('Demo compinent constructor called');
     // console.log(this.title);
     // console.log(this.message);
   }
@@ -29,11 +48,21 @@ export class DemoComponent implements OnChanges, OnInit, DoCheck, AfterContentIn
 
   ngDoCheck() {
     console.log('ngDoCheck Hook called');
-    console.log('In ngDoCheck', this.paraContent);
+    // console.log('In ngDoCheck', this.paraContent);
   }
 
   ngAfterContentInit() {
-    console.log('ngAfterContentInit Hook called');
-    console.log('In ngAfterContentInit', this.paraContent.nativeElement);
+    // console.log('ngAfterContentInit Hook called');
+    // console.log('In ngAfterContentInit', this.paraContent.nativeElement);
+  }
+
+  ngAfterContentChecked() {
+    console.log('  ngAfterContentChecked Hook called');
+    console.log('  In ngAfterContentChecked', this.paraContent.nativeElement);
+  }
+
+  ngAfterViewInit() {
+    console.log('ngAfterViewInit Hook called');
+    console.log('IN ngAfterViewInit', this.tempPara);
   }
 }
