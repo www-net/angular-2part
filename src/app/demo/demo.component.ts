@@ -1,6 +1,7 @@
 import {
   AfterContentChecked,
   AfterContentInit,
+  AfterViewChecked,
   AfterViewInit,
   Component,
   ContentChild,
@@ -23,7 +24,8 @@ export class DemoComponent implements
   DoCheck,
   AfterContentInit,
   AfterContentChecked,
-  AfterViewInit {
+  AfterViewInit,
+  AfterViewChecked {
 
   title: string = 'Demo Component';
   @Input() message: string;
@@ -52,17 +54,22 @@ export class DemoComponent implements
   }
 
   ngAfterContentInit() {
-    // console.log('ngAfterContentInit Hook called');
+    console.log('ngAfterContentInit Hook called');
     // console.log('In ngAfterContentInit', this.paraContent.nativeElement);
   }
 
   ngAfterContentChecked() {
     console.log('  ngAfterContentChecked Hook called');
-    console.log('  In ngAfterContentChecked', this.paraContent.nativeElement);
+    // console.log('  In ngAfterContentChecked', this.paraContent.nativeElement);
   }
 
   ngAfterViewInit() {
     console.log('ngAfterViewInit Hook called');
-    console.log('IN ngAfterViewInit', this.tempPara);
+    // console.log('IN ngAfterViewInit', this.tempPara);
+  }
+
+  ngAfterViewChecked() {
+    console.log('ngAfterViewChecked Hook called');
+    console.log(this.tempPara.nativeElement.textContent);
   }
 }
