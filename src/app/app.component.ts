@@ -8,20 +8,24 @@ import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angu
 export class AppComponent {
   title = 'angular-lifecycle-hook';
   inputVal: string = '';
+  toDestroy: boolean = false;
   constructor() {
     console.log('App component constructor called!')
   }
 
-  ngAfterViewInit() {
-    console.log('ngAfterViewInit Hook  of AppCompinent called');
-  }
+  // ngAfterViewInit() {
+  //   console.log('ngAfterViewInit Hook  of AppCompinent called');
+  // }
 
-
-  ngAfterViewChecked() {
-    console.log('ngAfterViewChecked Hook of AppComponent called');
-  }
+  // ngAfterViewChecked() {
+  //   console.log('ngAfterViewChecked Hook of AppComponent called');
+  // }
 
   onBtnClicked(inputEl: HTMLInputElement) {
     this.inputVal = inputEl.value;
+  }
+
+  DestroyComponent() {
+    this.toDestroy = !this.toDestroy;
   }
 }

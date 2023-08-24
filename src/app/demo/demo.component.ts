@@ -9,6 +9,7 @@ import {
   ElementRef,
   Input,
   OnChanges,
+  OnDestroy,
   OnInit,
   SimpleChanges, ViewChild
 } from '@angular/core';
@@ -25,7 +26,8 @@ export class DemoComponent implements
   AfterContentInit,
   AfterContentChecked,
   AfterViewInit,
-  AfterViewChecked {
+  AfterViewChecked,
+  OnDestroy {
 
   title: string = 'Demo Component';
   @Input() message: string;
@@ -33,7 +35,7 @@ export class DemoComponent implements
   @ContentChild('temp') paraContent: ElementRef;
 
   constructor() {
-    // console.log('Demo compinent constructor called');
+    console.log('Demo compinent constructor called');
     // console.log(this.title);
     // console.log(this.message);
   }
@@ -71,5 +73,9 @@ export class DemoComponent implements
   ngAfterViewChecked() {
     console.log('ngAfterViewChecked Hook called');
     console.log(this.tempPara.nativeElement.textContent);
+  }
+
+  ngOnDestroy(){
+    console.log('ngOnDestroy Hook called');
   }
 }
