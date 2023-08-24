@@ -7,12 +7,12 @@ import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angu
 })
 export class AppComponent {
   title = 'angular-lifecycle-hook';
-  inputVal: string[] = ['Hello', 'Hi There'];
+  inputVal: string = '';
   constructor() {
     console.log('App component constructor called!')
   }
 
   onBtnClicked(inputEl: HTMLInputElement) {
-    this.inputVal.push(inputEl.value)
+    this.inputVal = inputEl.value;
   }
 }
